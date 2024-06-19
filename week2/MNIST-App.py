@@ -34,6 +34,7 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.x = self.y = 0
+        self.canvasLength = 280
 
         # Set Window Title
         self.title("MNIST Digit Recognizer")
@@ -41,7 +42,7 @@ class App(tk.Tk):
         # Set Window Size
         self.geometry("960x360")
 
-        self.canvas = tk.Canvas(self, width=280, height=280, bg="white", cursor="cross")
+        self.canvas = tk.Canvas(self, width=self.canvasLength, height=self.canvasLength, bg="white", cursor="cross")
         self.canvas_small = tk.Canvas(self, width=28, height=28, bg="white", cursor="cross")
         self.label = tk.Label(self, text="     Draw a digit!!!", font=("Helvetica", 48))
         # Make the button wider
@@ -84,7 +85,7 @@ class App(tk.Tk):
         self.x, self.y = event.x, event.y
 
     def draw_on_small_canvas(self, x1, y1, x2, y2):
-        scale = 28 / 280
+        scale = 28 / self.canvasLength
         self.canvas_small.create_line(x1 * scale, y1 * scale, x2 * scale, y2 * scale, fill='black', width=2)
         self.draw_small.line([x1 * scale, y1 * scale, x2 * scale, y2 * scale], fill='black', width=2)
 
