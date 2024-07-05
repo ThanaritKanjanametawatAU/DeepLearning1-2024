@@ -21,8 +21,8 @@ def predict_digit(img):
     # Invert the image if necessary
     img = ImageOps.invert(img)
 
-    # plt.imshow(img, cmap='gray')
-    # plt.show()
+    plt.imshow(img, cmap='gray')
+    plt.show()
 
 
     # Normalize and prepare the image for prediction
